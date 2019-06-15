@@ -1,0 +1,84 @@
+USE_LR_PARSER
+
+prog
+
+(* ======================================================================================================= *)
+<prog>          ::= <stmt_list>                                         .
+<stmt_list>     ::= <stmt> <stmt_list> 
+                  | <epsilon>                                           .
+
+<epsilon>       ::= .
+
+<stmt>          ::= <skip> ";" 
+                  | <assign> ";" 
+                  | <decl> ";" 
+                  | <block> 
+                  | <cond> 
+                  | <inc> ";" 
+                  | <iterator> 
+                  | <print_stmt> ";"                                    .
+
+<skip>       	::= <epsilon>                                           .
+<assign>        ::= id "=" <expr>                                       .
+<decl>      	::= <type> id 
+                  | <type> <assign>                                     .
+
+<type>       	::= "int" 
+                  | "bool"                                              .
+
+<block>    	::= "{" <stmt_list> "}"                                 .
+
+<cond>     	::= "if" "(" <expr> ")" <block> "else" <block> 
+                  | "if" "(" <expr> ")" <block>                         .
+
+<inc>        	::= "++"id
+                  | "--"id
+                  | id"++" 
+                  | id"--"                                              .
+
+<iterator>      ::= "for" "(" <assign> ";" <expr> ";" <inc> ")" <block> 
+                  | "while" "(" <expr> ")" <block>                      .
+
+<print_stmt>    ::= "print" "(" <expr> ")"                              .
+
+<expr>        	::= <exprOr>                                            .
+<exprOr>        ::= <exprOr> "OR" <exprAnd> 
+                  | <exprAnd>                                           .
+
+<exprAnd>       ::= <exprAnd> "AND" <exprEql> 
+                  | <exprEql>                                           .
+
+<exprEql>	::= <exprEql> "==" <exprComp> 
+                  | <exprEql> "!=" <exprComp> 
+                  | <exprComp>                                          .
+
+<exprComp>	::= <exprComp> "<" <exprAdd> 
+                  | <exprComp> ">" <exprAdd> 
+                  | <exprAdd>                                           .
+
+<exprAdd>	::= <exprAdd> "+" <exprMult> 
+                  | <exprAdd> "-" <exprMult> 
+                  | <exprMult>                                          .
+
+<exprMult>	::= <exprMult> "*" <exprNeg> 
+                  | <exprMult> "/" <exprNeg> 
+                  | <exprMult> "%" <exprNeg> 
+                  | <exprNeg>                                           .
+
+<exprNeg> 	::= "-" <exprPwr> 
+                  | <exprPwr>                                           .
+
+<exprPwr>	::= <exprBase> "^" <exprPwr> 
+                  | <exprBase>                                          .
+
+<exprBase>	::= <exprInt> 
+                  | <exprBool> 
+                  | <exprId> 
+                  | "(" <expr> ")" 
+                  | "abs" "(" <expr> ")" 
+                  | <inc> 
+                  | "NOT" "(" <expr> ")"                                        .
+
+<exprInt>       ::= integer                                             .
+<exprBool>      ::= boolean                                             .
+<exprId>        ::= id                                                  .
