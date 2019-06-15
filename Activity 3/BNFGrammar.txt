@@ -1,0 +1,54 @@
+USE_LR_PARSER
+
+(* start symbol *)
+program
+
+(* ================================================================================ *)
+(*								basic statements							 	  	*)
+(* ================================================================================	*)
+
+<program>               ::= <stmtList>                                                          .
+
+<stmtList>              ::= <stmt> <stmtList> | epsilon                                         .
+
+<stmt>                  ::= <declaration> ”;” | <assignment>”;” | <printStmt>”;” | 
+                                <iterative> | <block> | <conditional>                           .
+
+<declaration>           ::=  “int” id | “bool” id | “int” id = <expression> | 
+                                “bool” id = <expression>                                        .
+
+<assignment>            ::=  id ”=” <expression> | <prePost>                                    .
+
+<printStmt>             ::=  “print” <expression>                                               .
+
+<block>                 ::=  “{“ <stmtList> “}”                                                 .
+
+<conditional>           ::=  “if” <expression> “then” <block> | 
+                                “if” <expression> “then” <block> “else” <block>                 .
+
+<iterative>             ::=  “while” <expression> <block> | 
+                                “for” <declaration> “;” <expression> “;” <assignment> <block>   .
+
+<expression>            ::=  <conjunction> | <expression> “or” <conjunction>                    .
+
+<conjunction>   	::=  <equality> | <conjunction> “and” <equality>                        .
+
+<equality>      	::=  <comparator> |  <equality> “=” <comparator > | 
+                                <equality> “!=” <comparator>                                    .
+
+<comparator>            ::=   <add_sub> | <add_sub> “>” <add_sub> |  <add_sub> “<” <add_sub>    .
+                                            
+<add_sub>		::=  <product> | < add_sub > “+” < product > | < add_sub > “-” <product> .                                       
+
+<product>	        ::=  <negation> | <product> “*” <negation> | <product> “div” <negation> |
+                                <product> “mod” <negation>                                          .
+
+<negation>		::=  <exponent> | “not” <negation > | “-” < negation >                      .
+ 
+<exponent>		::=  <base> | <base> “^” <exponent>                                         .
+
+<base>			::=  integer | boolean | “(“<expression>”)” | “|”<expression>”|” | <prePost> . 
+
+<prePost>		::= “++” id | “--” id | id “++” | id ”--”                                   .    
+
+<epsilon>               ::= .                                
