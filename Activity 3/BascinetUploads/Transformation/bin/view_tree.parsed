@@ -1,0 +1,18 @@
+<XML_FILE label="C:\UNO\Spring_2018\CSCI_4220\M3_Package\group6_2018\Transformation\TL_Modules\view_tree.tlp"><abstract node="PROG" value="" line ="8:13" column="1:52" label="view_tree"><abstract node="NON_RECURSIVE" value="" line ="8:13" column="1:52" label="view_tree"><abstract node="IDENTIFIER" value="main" line ="8:8" column="10:10" label="view_tree"></abstract>
+<abstract node="COND_RULE" value="" line ="9:13" column="5:52" label="view_tree"><abstract node="TERM" value="" line ="9:9" column="5:5" label="view_tree"><itree imatch_var="stmtList" schema_id="_in" line="9:9" column="5:5""view_tree"></itree>
+</abstract>
+<abstract node="TERM" value="" line ="9:9" column="22:22" label="view_tree"><itree imatch_var="stmtList" schema_id="_in" line="9:9" column="22:22""view_tree"></itree>
+</abstract>
+<abstract node="ANDALSO" value="" line ="11:12" column="13:52" label="view_tree"><abstract node="LIBRARY_CALL" value="" line ="11:11" column="23:52" label="view_tree"><abstract node="IDENTIFIER" value="prettyprint" line ="11:11" column="27:27" label="view_tree"></abstract>
+<abstract node="TERM" value="" line ="11:11" column="39:39" label="view_tree"><itree imatch_var="stmtList" schema_id="_in" line="11:11" column="39:39""view_tree"></itree>
+</abstract>
+</abstract>
+<abstract node="LIBRARY_CALL" value="" line ="12:12" column="21:44" label="view_tree"><abstract node="IDENTIFIER" value="toDot" line ="12:12" column="25:25" label="view_tree"></abstract>
+<abstract node="TERM" value="" line ="12:12" column="31:31" label="view_tree"><itree imatch_var="stmtList" schema_id="_in" line="12:12" column="31:31""view_tree"></itree>
+</abstract>
+</abstract>
+</abstract>
+</abstract>
+</abstract>
+</abstract>
+</XML_FILE>
